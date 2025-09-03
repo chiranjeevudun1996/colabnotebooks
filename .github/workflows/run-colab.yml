@@ -1,31 +1,31 @@
-name: Run Google Colab Notebook Every 5 Minutes
+# name: Run Google Colab Notebook Every 5 Minutes
 
-on:
-  schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes
-  workflow_dispatch:        # Also allows manual trigger
+# on:
+#   schedule:
+#     - cron: '*/5 * * * *'  # Runs every 5 minutes
+#   workflow_dispatch:        # Also allows manual trigger
 
-jobs:
-  run-notebook:
-    runs-on: ubuntu-latest
+# jobs:
+#   run-notebook:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3 
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3 
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+#       - name: Set up Python
+#         uses: actions/setup-python@v4
+#         with:
+#           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install papermill
-          python -m pip install --upgrade pip\
-          pip install papermill jupyter
-          pip install ipykernel  \
-          python -m ipykernel install --user --name=python3 --display-name="Python 3" 
+#       - name: Install dependencies
+#         run: |
+#           pip install papermill
+#           python -m pip install --upgrade pip\
+#           pip install papermill jupyter
+#           pip install ipykernel  \
+#           python -m ipykernel install --user --name=python3 --display-name="Python 3" 
 
-      - name: Run notebook
-        run: |
-          papermill Calc.ipynb output.ipynb
+#       - name: Run notebook
+#         run: |
+#           papermill Calc.ipynb output.ipynb
