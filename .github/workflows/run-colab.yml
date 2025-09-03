@@ -21,6 +21,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install papermill
+          python -m pip install --upgrade pip\
+          pip install papermill jupyter
+          pip install ipykernel  \
+          python -m ipykernel install --user --name=python3 --display-name="Python 3" 
 
       - name: Run notebook
         run: |
